@@ -1,0 +1,45 @@
+@import './timer.less';
+
+.Card {
+    @card-border-radius: 5px;
+    @card-margin: 20px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 90%;
+    background-color: @card-background;
+    color: @card-text-color;
+    border-radius: @card-border-radius;
+    margin: @card-margin*2 0;
+    padding: 30px 40px;
+    font-weight: bold;
+    .box-shadow(0, 5px, 10px, 0, @card-box-shadow, 20%);
+    .image-wrapper {
+      display: flex;
+      overflow: hidden;
+      align-items: center;
+      justify-content: center;
+      border-radius: @card-border-radius;
+      .box-shadow(0, 5px, 10px, 0, @card-box-shadow, 20%);
+      img {
+        height:100%;
+      }
+    }
+    .current-price-wrapper {
+        padding: 10px 20px;
+        margin: @card-margin/2 auto;
+        background-color: @card-min-price-background;
+        color: @card-min-price-color;
+        border-radius: 15px;
+        font-size: 1.5em;
+    }
+
+    .viewers-count-wrapper {
+        margin: @card-margin auto;
+    }
+    @media @tablet-down {
+        
+    }
+  }

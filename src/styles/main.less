@@ -1,0 +1,39 @@
+/** Main **/
+@import './media-queries.less';
+@import './colors.less';
+@import './mixins.less';
+
+@import './card.less';
+
+// Fonts
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+/* Global Variables */
+* {
+    padding: 0;
+	margin: 0;
+    font-family: 'Heebo', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: @base-light-grey;
+}
+
+h2 {
+  color: @text-h2-color;
+  font-size: 2.5em;
+  line-height: 1.35;
+  width:100%;
+  margin: 10px 0;
+  text-align: center;
+}
+
+

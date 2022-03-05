@@ -1,0 +1,16 @@
+.Timer {
+    position: absolute;
+    top:15%;
+    left:0;
+    background-color: @timer-background;
+    opacity: 80%;
+    color: @timer-text-color;
+    font-size: 1.8em;
+    font-weight: bold;
+    padding:4px 8px;
+    span:not(:last-child) {
+        &:after {
+            content: ":"
+        }
+    }
+}

@@ -1,0 +1,122 @@
+/** Mixins **/
+/* Color Manipulations */
+.gradient (@startColor: #eee, @endColor: white) {
+    background: linear-gradient(to right, @startColor, @endColor);
+}
+
+/* Box Shadow */
+.box-shadow(@x, @y, @blur, @spread:0, @color, @alpha) {
+    box-shadow: @x @y @blur @spread fade(@color, @alpha);
+}
+
+.box-shadow(none) {
+    box-shadow: none;
+}
+
+/* After / Before Graphics */
+.before-graphics (@image-url, @size-square, @top-or-bottom, @left-or-right, @z-index){
+    &:before {
+        content: '';
+        position: absolute;
+        width: @size-square;
+        height: @size-square;
+        @{top-or-bottom}: -10%;
+        @{left-or-right}: -15%;
+        background: @image-url center center no-repeat;
+        background-size: contain;
+        z-index: @z-index;
+        @media @desktop-down {
+            width: calc(@size-square * 0.8);
+            height: calc(@size-square * 0.8);
+            @{top-or-bottom}: calc(-10% * 0.8);
+            @{left-or-right}: calc(-15% * 0.9);
+        }
+        @media @tablet-down {
+            width: calc(@size-square * 0.5);
+            height: calc(@size-square * 0.5);
+            @{top-or-bottom}: calc(-10% * 0.8);
+            @{left-or-right}: calc(-15% * 0.3);
+        }
+    }
+}
+
+.after-graphics (@image-url, @size-square, @top-or-bottom, @left-or-right, @z-index){
+    &:after {
+        content: '';
+        position: absolute;
+        width: @size-square;
+        height: @size-square;
+        @{top-or-bottom}: -5%;
+        @{left-or-right}: -7%;
+        background: @image-url center center no-repeat;
+        background-size: contain;
+        z-index: @z-index;
+        @media @desktop-down {
+            width: calc(@size-square * 0.8);
+            height: calc(@size-square * 0.8);
+            @{top-or-bottom}: calc(-10% * 0.8);
+            @{left-or-right}: calc(-10% * 0.7);
+        }
+        @media @tablet-down {
+            width: calc(@size-square * 0.5);
+            height: calc(@size-square * 0.5);
+            @{top-or-bottom}: calc(-10% * 0.8);
+            @{left-or-right}: calc(-10% * 0.3);
+        }
+    }
+}
+
+.before-after-corners-graphics (@color, @size-square){
+    &:before {
+        content: '';
+        position: absolute;
+        border-top: 2px solid @color;
+        border-left: 2px solid @color;
+        left: -6%;
+        top: -6%;
+        width: @size-square;
+        height: @size-square;
+        @media @desktop-down {
+            width: calc(@size-square * 0.8);
+            height: calc(@size-square * 0.8);
+            left: calc(-6% * 0.8);
+            top: calc(-6% * 0.8);
+        }
+        @media @tablet-down {
+            width: calc(@size-square * 0.5);
+            height: calc(@size-square * 0.5);
+            left: calc(-6% * 0.5);
+            top: calc(-6% * 0.5);
+        }
+    }
+
+    &:after {
+        content: '';
+        position: absolute;
+        border-bottom: 2px solid @color;
+        border-right: 2px solid @color;
+        right: -6%;
+        bottom: -6%;
+        width: @size-square;
+        height: @size-square;
+        @media @desktop-down {
+            width: calc(@size-square * 0.8);
+            height: calc(@size-square * 0.8);
+            right: calc(-6% * 0.8);
+            bottom: calc(-6% * 0.8);
+        }
+        @media @tablet-down {
+            width: calc(@size-square * 0.5);
+            height: calc(@size-square * 0.5);
+            right: calc(-6% * 0.5);
+            bottom: calc(-6% * 0.5);
+        }
+    }
+}
+
+/* Square Pattern */
+.square-pattern(@color, @border-color, @border-size, @square-size) {
+    background: @color;
+    background-image: linear-gradient(@border-color @border-size, transparent @border-size,), linear-gradient(90deg, @border-color @border-size, transparent @border-size);
+    background-size: @square-size @square-size;
+}

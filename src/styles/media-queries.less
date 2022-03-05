@@ -1,0 +1,27 @@
+/** Media Queries **/
+@desktop-xl:        '1480px';
+@desktop-l-max:     '1199px';
+@desktop-max:       '991px';
+@tablet-max:        '767px';
+@mobile-max:        '480px';
+@mobile-xs-max:     '400px';
+
+@desktop-xl-up:         ~'(min-width: @{desktop-xl})';
+@desktop-xl-down:       ~'(min-width: @{desktop-xl})';
+@desktop-l-down:        ~'(max-width: @{desktop-l-max})';
+@desktop-down:          ~'(max-width: @{desktop-max})';
+@tablet-down:           ~'(max-width: @{tablet-max})';
+@mobile-down:           ~'(max-width: @{mobile-max})';
+@mobile-xs-down:        ~'(max-width: @{mobile-xs-max})';
+
+@desktop-only:          ~'only screen and @{desktop-down}';
+@tablet-only:           ~'only screen and (min-width: @{mobile-max}) and (max-width: @{tablet-max})';
+@mobile-only:           ~'only screen and @{mobile-down}';
+
+/* Examples */
+@media @desktop-down    {}
+@media @desktop-only    {}
+@media @tablet-down     {}
+@media @tablet-only     {}
+@media @mobile-down     {}
+@media @mobile-only     {}
