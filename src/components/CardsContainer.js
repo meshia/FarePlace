@@ -1,21 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import Card from './Card';
-
-const axios = require('axios');
+import axios from 'axios';
 
 const CardsContainer = () => {
     const [items, setItems] = useState([]);
     useEffect(() => {
         const url = "/promotional/test.json";
         const fetchData = async () => {
-            axios
-                .get(url)
-                .then(function (response) {
-                    setItems(response.data);
-                })
-                .catch(function (error) {
-                    console.log(error);
-                });
+            const response = await axios.get(url);
+            setItems(response.data);
         };
     
         fetchData();
